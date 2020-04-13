@@ -30,7 +30,7 @@
     top: 43.6px;
 }
 
-.card-category {
+.card-container {
     display: flex;
     flex-wrap: wrap;
 }
