@@ -22,11 +22,16 @@ function createCardContainer() {
         for (let k = 0; k < cCard.length; k++) {
             const cardItem = document.createElement('div');
            // const cardImage = document.createElement('img');
+           const cardImgUrl = `url(./assets/${cCard[k].image})`;
 
             cardItem.innerHTML = cCard[k].word;
-           // cardItem.style.backgroundImage = url`../assets/${cCard[k].image}`;
+            
+            console.log('cardIMGurl', cardImgUrl);
+          cardItem.style.backgroundImage = cardImgUrl;
+        // cardItem.style.backgroundImage = 'url(./assets/img/angry.jpg)';
+         // cardItem.style.background = 'red';
             cardItem.classList.add('card');
-         //   console.log('IMG', url`../assets/${cCard[k].image}`)
+           console.log('IMG', (`../assets/${cCard[k].image}`));
             cardCategory.appendChild(cardItem);
           //  cardItem.appendChild(cardImage);
             console.log('image', cCard[k].image);
