@@ -1,48 +1,40 @@
-import cards from '../assets/cards'
-
 class Card {
-  constructor() {
+  constructor(
+    word, translation, image, audioSrc,
+  ) {
+    this.word = word;
+    this.translation = translation;
+    this.image = image;
+    this.audioSrc = audioSrc;
     this.ctreateCard();
     this.addAudio();
   }
 
   ctreateCard() {
-    for (let i = 1; i < cards.length; i++) {
-      const cardCategory = document.createElement('div');
-      const mainContainer = document.getElementById('container');
-      const cCard = cards[i];
 
-      cardCategory.id = cards[0][i - 1];
-      cardCategory.classList.add('card-category');
-      mainContainer.appendChild(cardCategory);
+    const cardItem = document.createElement('div');
+    const cardImgUrl = `url(./assets/${this.image})`;
+    const cardFront = document.createElement('div');
+    const cardBack = document.createElement('div');
+    const cardRotateImg = document.createElement('img');
 
-      for (let k = 0; k < cCard.length; k++) {
-        const cardContainer = document.createElement('div');
-        const cardImgUrl = `url(./assets/${cCard[k].image})`;
-        const cardFront = document.createElement('div');
-        const cardBack = document.createElement('div');
-        const rotateImg = document.createElement('img');
-
-        cardFront.innerHTML = cCard[k].word;
-        cardBack.innerHTML = cCard[k].translation;
-        rotateImg.src = './assets/img/rotate.png';
-        rotateImg.classList.add('rotate')
-        cardFront.classList.add('font-face');
-        cardBack.classList.add('back-face');
-        cardBack.classList.add('hidden');
-        cardFront.style.backgroundImage = cardImgUrl;
-        cardBack.style.backgroundImage = cardImgUrl;
-        cardContainer.classList.add('card');
-        cardCategory.appendChild(cardContainer);
-        cardContainer.appendChild(cardFront);
-        cardContainer.appendChild(cardBack);
-        cardContainer.appendChild(rotateImg);
-        //cardContainer.classList.add('hidden');
-      }
-    }
+    cardFront.innerHTML = this.word;
+    cardBack.innerHTML = this.translation;
+    cardRotateImg.src = './assets/img/rotate.png';
+    cardRotateImg.classList.add('rotate')
+    cardFront.classList.add('font-face');
+    cardBack.classList.add('back-face');
+    cardBack.classList.add('hidden');
+    cardFront.style.backgroundImage = cardImgUrl;
+    cardBack.style.backgroundImage = cardImgUrl;
+    cardItem.classList.add('card');
+    cardItem.appendChild(cardFront);
+    cardItem.appendChild(cardBack);
+    cardItem.appendChild(cardRotateImg);
   }
   audioPlay(name) {
     const audio = new Audio(`./assets/audio/${name}.mp3`);
+
     audio.play();
   }
   addAudio() {
@@ -54,6 +46,7 @@ class Card {
       });
     });
   }
+
 }
 
 export default Card;

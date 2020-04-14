@@ -1,40 +1,24 @@
-
-import cards from '../assets/cards'
+import cardsConfig from "./cards-config";
 
 class CardsGroup {
-    constructor() {
-        this.createCardContainer();
-        this.ctreateCardsGroup();
-    }
+	constructor(name, cardsConfig) {
+		this.name = name;
+		this.cardsConfig = cardsConfig;
+	}
 
-    createCardContainer() {
-        const { body } = document;
-        const cardContainer = document.createElement('div');
+	createDOMCards() {
+		const cardsGroup = document.createElement('div');
+		const cardsGroupImg = document.createElement('img');
+		const cardImgSrc = `./assets/${cardsConfig.image}`;
 
-        body.appendChild(cardContainer);
-        cardContainer.classList.add('main-container');
-        cardContainer.id = 'container';
-    }
 
-    ctreateCardsGroup() {
-        for (let i = 1; i < cards.length; i++) {
-            const cardsGroup = document.createElement('div');
-            const cCard = cards[0][i - 1];
-            //  const cardImgUrl = `url(./assets/${cards[i][1].image})`;
-            const cardImgSrc = `./assets/${cards[i][1].image}`;
-            const cardsGroupImg = document.createElement('img');
-
-            cardsGroup.innerHTML = cCard;
-
-            //cardsGroup.id = cards[0][i - 1];
-            cardsGroup.classList.add('cards-group');
-            cardsGroupImg.src = cardImgSrc;
-            cardsGroup.classList.add('card');
-            //  cardsGroupImg.style.backgroundImage = cardImgUrl;
-            cardsGroup.appendChild(cardsGroupImg)
-            document.getElementById('container').appendChild(cardsGroup);
-        }
-    }
+		cardsGroup.innerHTML = name;
+		cardsGroupImg.src = cardImgSrc;
+		cardsGroup.classList.add('cards-group');
+		cardsGroup.classList.add('card');
+		cardsGroup.appendChild(cardsGroupImg)
+		//document.getElementById('mainContainer').appendChild(cardsGroup);
+	}
 }
 
 export default CardsGroup;
