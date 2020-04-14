@@ -12,7 +12,8 @@ function changeCardCategories() {
             // event.target.innerHTML === ;
             console.log('cardCategory', cardCategory);
             const activeCardCategory = cardCategory.find((el) => el.id == event.target.innerHTML);
-
+            
+            console.log('activeCardCategory', activeCardCategory);
             if (activeCardCategory) {
                 activeCardCategory.classList.remove('hidden');
             }

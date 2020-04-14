@@ -24,8 +24,6 @@ class CardsGroup {
             const cardImgSrc = `./assets/${cards[i][1].image}`;
             const cardsGroupImg = document.createElement('img');
 
-            console.log('cards.length', cards.length);
-
             cardsGroup.innerHTML = cCard;
 
             //cardsGroup.id = cards[0][i - 1];
