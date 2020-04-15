@@ -1,14 +1,14 @@
-const cardsGroupNames = {
-  ACTION_1: 'Action (set A)',
-  ACTION_2: 'Action (set B)',
-  ACTION_3: 'Animal (set A)',
-  ACTION_4: 'Animal (set A)',
-  ACTION_5: 'Clothes',
-  ACTION_6: 'Emotions',
-}
+// const cardsGroupNames = {
+//   ACTION_1: 'Action (set A)',
+//   ACTION_2: 'Action (set B)',
+//   ACTION_3: 'Animal (set A)',
+//   ACTION_4: 'Animal (set A)',
+//   ACTION_5: 'Clothes',
+//   ACTION_6: 'Emotions',
+// }
 
-const cardsConfig = [
-  cardsGroupNames.ACTION_1 : [
+const cardsConfig = {
+  'Action (set A)': [
     {
       word: 'cry',
       translation: 'плакать',
@@ -58,7 +58,7 @@ const cardsConfig = [
       audioSrc: 'audio/jump.mp3'
     }
   ],
-  cardsGroupNames.ACTION_2 : [
+  'Action (set B)': [
     {
       word: 'open',
       translation: 'открывать',
@@ -108,7 +108,7 @@ const cardsConfig = [
       audioSrc: 'audio/swim.mp3'
     }
   ],
-  cardsGroupNames.ACTION_3 : [
+  'Animal (set A)': [
     {
       word: 'cat',
       translation: 'кот',
@@ -158,7 +158,7 @@ const cardsConfig = [
       audioSrc: 'audio/sheep.mp3'
     }
   ],
-  cardsGroupNames.ACTION_4 : [
+  'Animal (set B)': [
     {
       word: 'bird',
       translation: 'птица',
@@ -208,7 +208,7 @@ const cardsConfig = [
       audioSrc: 'audio/dolphin.mp3'
     }
   ],
-  cardsGroupNames.ACTION_5 : [
+  'Clothes': [
     {
       word: 'skirt',
       translation: 'юбка',
@@ -258,7 +258,7 @@ const cardsConfig = [
       audioSrc: 'audio/shoe.mp3'
     }
   ],
-  cardsGroupNames.ACTION_6 : [
+  'Emotions': [
     {
       word: 'sad',
       translation: 'грустный',
@@ -308,6 +308,6 @@ const cardsConfig = [
       audioSrc: 'audio/laugh.mp3'
     }
   ]
-]
+}
 
 export default cardsConfig;
