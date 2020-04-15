@@ -1,16 +1,16 @@
 class Card {
   constructor(
-    word, translation, image, audioSrc,
+    { word, translation, image, audioSrc, }
   ) {
     this.word = word;
     this.translation = translation;
     this.image = image;
     this.audioSrc = audioSrc;
-    this.ctreateCard();
+    //this.createCard();
     this.addAudio();
   }
 
-  ctreateCard() {
+  createDOMCard() {
 
     const cardItem = document.createElement('div');
     const cardImgUrl = `url(./assets/${this.image})`;
@@ -31,6 +31,8 @@ class Card {
     cardItem.appendChild(cardFront);
     cardItem.appendChild(cardBack);
     cardItem.appendChild(cardRotateImg);
+
+    return cardItem;
   }
   audioPlay(name) {
     const audio = new Audio(`./assets/audio/${name}.mp3`);

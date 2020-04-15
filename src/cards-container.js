@@ -2,19 +2,19 @@ import CardsGroup from './cards-group';
 import cardsConfig from './cards-config';
 
 const cardsGroupNames = {
-    ACTION_1: 'Action (set A)',
-    ACTION_2: 'Action (set B)',
-    ACTION_3: 'Animal (set A)',
-    ACTION_4: 'Animal (set A)',
-    ACTION_5: 'Clothes',
-    ACTION_6: 'Emotions',
-  }
+    ACTION_A: 'Action (set A)',
+    ACTION_B: 'Action (set B)',
+    ANIMAL_A: 'Animal (set A)',
+    ANIMAL_B: 'Animal (set B)',
+    CLOTHES: 'Clothes',
+    EMOTIONS: 'Emotions',
+}
 class CardsContainer {
     constructor() {
         this.cardsGroups = this.generateCardGroups();
 
-    } 
-      
+    }
+
     createDOMMainContainer() {
         const { body } = document;
         const cardContainer = document.createElement('div');
@@ -28,54 +28,77 @@ class CardsContainer {
 
         this.createDOMMainContainer();
         let startPage = this.getMainPage();
+        // console.log('startPAGE:', startPage);
         this.applyPageToDOM(startPage);
+
     }
 
-   
+
     generateCardGroups() {
         const cardsGroups = [
-            new CardsGroup(cardsGroupNames.ACTION_1, cardsConfig[cardsGroupNames.ACTION_1]),
-           // new CardsGroup(cardsGroupNames.ACTION_2, cardsConfig[cardsGroupNames.ACTION_1]),
-            // new CardsGroup(cardsGroupNames.ACTION_3, cardsConfig[cardsGroupNames.ACTION_3]),
-            // new CardsGroup(cardsGroupNames.ACTION_4, cardsConfig[cardsGroupNames.ACTION_4]),
-            // new CardsGroup(cardsGroupNames.ACTION_5, cardsConfig[cardsGroupNames.ACTION_5]),
-            // new CardsGroup(cardsGroupNames.ACTION_6, cardsConfig[cardsGroupNames.ACTION_6]),
+            new CardsGroup(cardsGroupNames.ACTION_A, cardsConfig[cardsGroupNames.ACTION_A]),
+            new CardsGroup(cardsGroupNames.ACTION_B, cardsConfig[cardsGroupNames.ACTION_B]),
+            new CardsGroup(cardsGroupNames.ANIMAL_A, cardsConfig[cardsGroupNames.ANIMAL_A]),
+            new CardsGroup(cardsGroupNames.ANIMAL_B, cardsConfig[cardsGroupNames.ANIMAL_B]),
+            new CardsGroup(cardsGroupNames.CLOTHES, cardsConfig[cardsGroupNames.CLOTHES]),
+            new CardsGroup(cardsGroupNames.EMOTIONS, cardsConfig[cardsGroupNames.EMOTIONS]),
         ]
-        console.log(`cardsConfig['Action (set A)']::`,cardsConfig[cardsGroupNames.ACTION_1]);
-        console.log('generateCardGroups_cardsGroup:',cardsGroups);
+        // console.log(`cardsConfig['Action (set A)']::`, cardsConfig[cardsGroupNames.ACTION_A]);
+        //  console.log('generateCardGroups_cardsGroup:', cardsGroups);
         return cardsGroups;
     }
 
 
     getMainPage() {
-        console.log('cardsGroup,getMainPage:',this.cardsGroups);
+        let mainPage = document.createElement('div');
+        console.log('cardsGroup,getMainPage:', this.cardsGroups);
         this.cardsGroups.forEach((el) => {
-            document.getElementById('mainContainer').appendChild(el.createDOMCards());
+            let domTitleCard = el.createDomTitleCard();
+            domTitleCard.addEventListener('click', (event) => {
+                let activeMainCardId = event.target.id;
+                console.log('eventTarget', activeMainCardId);
+                this.selectCardGroup(activeMainCardId);
+
+            });
+            mainPage.appendChild(domTitleCard);
         });
+        return mainPage;
     }
-        clearPage() {
-           let element = document.getElementById('mainContainer');
-            while (element.firstChild) {
-              element.removeChild(element.firstChild);
-            }
+
+    clearPage() {
+        let element = document.getElementById('mainContainer');
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
         }
+    }
 
-    //     selectCardGroup (id) {
+    selectCardGroup(mainCardId) {
+        let categoryPage = document.createElement('div');
+        // console.log('activeMainCardId', mainCardId);
+        let cardGroup = this.cardsGroups.find(el => el.name === mainCardId);
+        //  console.log('cardGroups',this.cardsGroups[1].name);
+        console.log('cardGroupsZZ', cardGroup.cardsConfig);
+        //    let domCards =  cardGroup.createDOMCards().createCard();
+        // console.log('DOMcardsXXXXXXXXXXX', domCards);
+        //  
 
-    //         let cardGroup = this.cardGroups.find(el => el.id === id);
+        cardGroup.cardsConfig.forEach((el) => {
+            console.log('el', el);
+            // let domCards = el.createDOMCards();
+        });
+        // categoryPage.appendChild(domCards);
+        //this.applyPageToDOM(categoryPage);
 
-    //         let domCards =  cardGroup.createDOMCards();
+        //return categoryPage;
 
-    //         this.applyPageToDOM(domCards);
-
-    //    }
+    }
 
 
-       applyPageToDOM(generatedDivs) {
-           this.clearPage();
-           document.getElementById('mainContainer').appendClild(generatedDivs);
+    applyPageToDOM(generatedDivs) {
+        this.clearPage();
+        document.getElementById('mainContainer').appendChild(generatedDivs);
 
-       }
+    }
 }
 
 export default CardsContainer;
