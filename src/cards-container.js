@@ -28,6 +28,7 @@ class CardsContainer {
     this.createDOMMainContainer();
     let startPage = this.getMainPage();
     this.applyPageToDOM(startPage);
+    // this.changeTrainToPlay();
   }
 
 
@@ -46,6 +47,7 @@ class CardsContainer {
 
   getMainPage() {
     let mainPage = document.createElement('div');
+    mainPage.classList.add('cards-group-container');
     this.cardsGroups.forEach((el) => {
       let domTitleCard = el.createDomTitleCard();
       domTitleCard.addEventListener('click', (event) => {
@@ -79,6 +81,15 @@ class CardsContainer {
     let domCardGroup = cardGroup.createDOMCards();
     this.applyPageToDOM(domCardGroup);
   }
+
+  // changeTrainToPlay() {
+  //   let mainToggle = document.querySelectorAll('.toggle-group');
+    
+  //   console.log('TOGGLE', mainToggle);
+  //   mainToggle.addEventListener('click', (event) => {
+  //     console.log('EVENT', event.target);
+  //   });
+  // }
 }
 
 export default CardsContainer;
