@@ -6,7 +6,7 @@ class Card {
     this.translation = translation;
     this.image = image;
     this.audioSrc = audioSrc;
-    this.addAudio();
+    this.cardFront = document.querySelectorAll('.font-face');
   }
 
   createDOMCard() {
@@ -21,6 +21,7 @@ class Card {
     cardBack.innerHTML = this.translation;
     cardRotateImg.src = './assets/img/rotate.png';
     cardRotateImg.classList.add('rotate')
+    cardFront.id = this.word;
     cardFront.classList.add('font-face');
     cardBack.classList.add('back-face');
     cardBack.classList.add('hidden');
@@ -33,20 +34,13 @@ class Card {
 
     return cardItem;
   }
+
   audioPlay(name) {
     const audio = new Audio(`./assets/audio/${name}.mp3`);
 
     audio.play();
   }
-  addAudio() {
-    const cardFront = document.querySelectorAll('.font-face');
 
-    cardFront.forEach((e) => {
-      e.addEventListener('click', (event) => {
-        this.audioPlay(event.target.innerHTML);
-      });
-    });
-  }
 }
 
 export default Card;

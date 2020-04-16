@@ -31,16 +31,27 @@ class CardsGroup {
       new Card(this.cardsConfig[6]),
       new Card(this.cardsConfig[7]),
     ]
-  
+
     return cards;
   }
+
   createDOMCards() {
     const domCards = document.createElement('div');
+
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
+      domCard.addEventListener('click', (event) => {
+        this.analyseCardEvent(el, event);
+      });
       domCards.appendChild(domCard);
     });
     return domCards;
+  }
+
+  analyseCardEvent(card, event) {
+    if (event.target.id) {
+      card.audioPlay(event.target.id);
+    }
   }
 }
 
