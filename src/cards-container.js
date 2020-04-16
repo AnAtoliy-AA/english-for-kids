@@ -1,6 +1,7 @@
 import CardsGroup from './cards-group';
 import cardsConfig from './cards-config';
 
+
 const cardsGroupNames = {
     ACTION_A: 'Action (set A)',
     ACTION_B: 'Action (set B)',
@@ -12,7 +13,6 @@ const cardsGroupNames = {
 class CardsContainer {
     constructor() {
         this.cardsGroups = this.generateCardGroups();
-
     }
 
     createDOMMainContainer() {
@@ -25,12 +25,9 @@ class CardsContainer {
     }
 
     generateDomCardContainer() {
-
         this.createDOMMainContainer();
         let startPage = this.getMainPage();
-        // console.log('startPAGE:', startPage);
         this.applyPageToDOM(startPage);
-
     }
 
 
@@ -43,22 +40,20 @@ class CardsContainer {
             new CardsGroup(cardsGroupNames.CLOTHES, cardsConfig[cardsGroupNames.CLOTHES]),
             new CardsGroup(cardsGroupNames.EMOTIONS, cardsConfig[cardsGroupNames.EMOTIONS]),
         ]
-        // console.log(`cardsConfig['Action (set A)']::`, cardsConfig[cardsGroupNames.ACTION_A]);
-        //  console.log('generateCardGroups_cardsGroup:', cardsGroups);
         return cardsGroups;
     }
 
 
     getMainPage() {
         let mainPage = document.createElement('div');
-        console.log('cardsGroup,getMainPage:', this.cardsGroups);
+        
         this.cardsGroups.forEach((el) => {
             let domTitleCard = el.createDomTitleCard();
             domTitleCard.addEventListener('click', (event) => {
                 let activeMainCardId = event.target.id;
-                console.log('eventTarget', activeMainCardId);
-                this.selectCardGroup(activeMainCardId);
-
+               let cardGroup = this.selectCardGroup(activeMainCardId);
+               let domCardGroup = cardGroup.createDOMCards();
+               this.applyPageToDOM(domCardGroup);
             });
             mainPage.appendChild(domTitleCard);
         });
@@ -73,31 +68,14 @@ class CardsContainer {
     }
 
     selectCardGroup(mainCardId) {
-        let categoryPage = document.createElement('div');
-        // console.log('activeMainCardId', mainCardId);
         let cardGroup = this.cardsGroups.find(el => el.name === mainCardId);
-        //  console.log('cardGroups',this.cardsGroups[1].name);
-        console.log('cardGroupsZZ', cardGroup.cardsConfig);
-        //    let domCards =  cardGroup.createDOMCards().createCard();
-        // console.log('DOMcardsXXXXXXXXXXX', domCards);
-        //  
-
-        cardGroup.cardsConfig.forEach((el) => {
-            console.log('el', el);
-            // let domCards = el.createDOMCards();
-        });
-        // categoryPage.appendChild(domCards);
-        //this.applyPageToDOM(categoryPage);
-
-        //return categoryPage;
-
+        return cardGroup;
     }
 
 
     applyPageToDOM(generatedDivs) {
         this.clearPage();
         document.getElementById('mainContainer').appendChild(generatedDivs);
-
     }
 }
 

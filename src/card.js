@@ -6,7 +6,6 @@ class Card {
     this.translation = translation;
     this.image = image;
     this.audioSrc = audioSrc;
-    //this.createCard();
     this.addAudio();
   }
 
@@ -48,7 +47,6 @@ class Card {
       });
     });
   }
-
 }
 
 export default Card;
