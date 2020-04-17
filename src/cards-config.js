@@ -307,6 +307,99 @@ const cardsConfig = {
       image: 'img/laugh.jpg',
       audioSrc: 'audio/laugh.mp3'
     }
+  ],
+  'Family': [
+    {
+      word: 'family',
+      translation: 'семья',
+      image: 'img/family.jpg',
+      audioSrc: 'audio/family.mp3'
+    },
+    {
+      word: 'brother',
+      translation: 'брат',
+      image: 'img/brother.jpg',
+      audioSrc: 'audio/brother.mp3'
+    },
+    {
+      word: 'child',
+      translation: 'ребенок',
+      image: 'img/child.jpg',
+      audioSrc: 'audio/child.mp3'
+    },
+    {
+      word: 'father',
+      translation: 'отец',
+      image: 'img/father.jpg',
+      audioSrc: 'audio/father.mp3'
+    },
+    {
+      word: 'grandfather',
+      translation: 'дедушка',
+      image: 'img/grandfather.jpg',
+      audioSrc: 'audio/grandfather.mp3'
+    },
+    {
+      word: 'grandmother',
+      translation: 'бабушка',
+      image: 'img/grandmother.jpg',
+      audioSrc: 'audio/grandmother.mp3'
+    },
+    {
+      word: 'mother',
+      translation: 'мать',
+      image: 'img/mother.jpg',
+      audioSrc: 'audio/mother.mp3'
+    },
+    {
+      word: 'sister',
+      translation: 'сестра',
+      image: 'img/sister.jpg',
+      audioSrc: 'audio/sister.mp3'
+    }
+  ],
+  'Colors': [
+    {
+      word: 'white',
+      translation: 'белый',
+      image: 'img/white.jpg',
+      audioSrc: 'audio/white.mp3'
+    }, {
+      word: 'black',
+      translation: 'черный',
+      image: 'img/black.jpg',
+      audioSrc: 'audio/black.mp3'
+    }, {
+      word: 'blue',
+      translation: 'синий',
+      image: 'img/blue.jpg',
+      audioSrc: 'audio/blue.mp3'
+    }, {
+      word: 'brown',
+      translation: 'коричневый',
+      image: 'img/brown.jpg',
+      audioSrc: 'audio/brown.mp3'
+    }, {
+      word: 'orange',
+      translation: 'оранжевый',
+      image: 'img/orange.jpg',
+      audioSrc: 'audio/orange.mp3'
+    }, {
+      word: 'green',
+      translation: 'зеленый',
+      image: 'img/green.jpg',
+      audioSrc: 'audio/green.mp3'
+    }, {
+      word: 'red',
+      translation: 'красный',
+      image: 'img/red.jpg',
+      audioSrc: 'audio/red.mp3'
+    }, {
+      word: 'yellow',
+      translation: 'желтый',
+      image: 'img/yellow.jpg',
+      audioSrc: 'audio/yellow.mp3'
+    }
   ]
 }
 

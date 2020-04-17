@@ -12,13 +12,27 @@
 
 <body>
   <div class="header-container">
-    <div class="responsive__menu__icon">
+    <a id="hamburger-icon" href="#" class="open-close-btn"><span></span>
       <span></span>
       <span></span>
       <span></span>
+    </a>
+    <div class="overlay">
+      <div class="overlay-content">
+        <h4>HELLO!</h4>
+        <a href="#">Main menu</a>
+        <a href="#">Action (set A)</a>
+        <a href="#">Action (set B)</a>
+        <a href="#">Animal (set A)</a>
+        <a href="#">Animal (set B)</a>
+        <a href="#">Clothes</a>
+        <a href="#">Emotions</a>
+        <a href="#">Family</a>
+        <a href="#">Colors</a>
+      </div>
     </div>
-    <ul class='navigation-menu'></ul>
-    <input type="checkbox" checked data-toggle="toggle" data-on="Play" data-off="Train" data-onstyle="success" data-offstyle="danger" class="nav-toggle">
+    <input type="checkbox" checked data-toggle="toggle" data-on="Play" data-off="Train" data-onstyle="success"
+      data-offstyle="danger" class="nav-toggle">
   </div>
   <script src="./dist/bundle.js"></script>
   <script src="js/bootstrap-toggle.js"></script>

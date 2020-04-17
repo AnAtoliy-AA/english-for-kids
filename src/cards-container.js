@@ -9,6 +9,8 @@ const cardsGroupNames = {
   ANIMAL_B: 'Animal (set B)',
   CLOTHES: 'Clothes',
   EMOTIONS: 'Emotions',
+  FAMILY: 'Family',
+  COLORS: 'Colors',
 }
 class CardsContainer {
   constructor() {
@@ -40,6 +42,8 @@ class CardsContainer {
       new CardsGroup(cardsGroupNames.ANIMAL_B, cardsConfig[cardsGroupNames.ANIMAL_B]),
       new CardsGroup(cardsGroupNames.CLOTHES, cardsConfig[cardsGroupNames.CLOTHES]),
       new CardsGroup(cardsGroupNames.EMOTIONS, cardsConfig[cardsGroupNames.EMOTIONS]),
+      new CardsGroup(cardsGroupNames.FAMILY, cardsConfig[cardsGroupNames.FAMILY]),
+      new CardsGroup(cardsGroupNames.COLORS, cardsConfig[cardsGroupNames.COLORS]),
     ]
     return cardsGroups;
   }
