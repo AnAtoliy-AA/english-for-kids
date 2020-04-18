@@ -15,6 +15,8 @@ class CardsGroup {
     cardsGroupText.innerHTML = this.name;
     cardsGroupImg.src = cardImgSrc;
     cardsGroup.id = this.name;
+    cardsGroupImg.id = this.name;
+    cardsGroupText.id = this.name;
     cardsGroup.classList.add('cards-group');
     cardsGroupText.classList.add('main-card-text');
     cardsGroup.appendChild(cardsGroupImg);
@@ -23,17 +25,9 @@ class CardsGroup {
   }
 
   generateCards() {
-    const cards = [
-      new Card(this.cardsConfig[0]),
-      new Card(this.cardsConfig[1]),
-      new Card(this.cardsConfig[2]),
-      new Card(this.cardsConfig[3]),
-      new Card(this.cardsConfig[4]),
-      new Card(this.cardsConfig[5]),
-      new Card(this.cardsConfig[6]),
-      new Card(this.cardsConfig[7]),
-    ]
-
+    const cards = this.cardsConfig.map((el) => {
+      return new Card(el);
+    })
     return cards;
   }
 
@@ -48,8 +42,9 @@ class CardsGroup {
       domCard.addEventListener('click', (event) => {
         this.analyseCardEvent(el, event);
       });
-      domCards.appendChild(buttonPlay);
+     
       domCards.appendChild(domCard);
+      domCards.appendChild(buttonPlay);
     });
     
     return domCards;
