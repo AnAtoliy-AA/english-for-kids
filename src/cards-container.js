@@ -81,11 +81,17 @@ class CardsContainer {
 
   applyDomCardsToMainContainer(event) {
     let activeMainCardId = event.target.id;
-    let cardGroup = this.selectCardGroup(activeMainCardId);
+    // let cardGroup = this.selectCardGroup(activeMainCardId);
+    // let domCardGroup = cardGroup.createDOMCards();
+    // this.applyPageToDOM(domCardGroup);
+    this.openCardCategoryPage(activeMainCardId);
+  }
+
+  openCardCategoryPage(id) {
+    let cardGroup = this.selectCardGroup(id);
     let domCardGroup = cardGroup.createDOMCards();
     this.applyPageToDOM(domCardGroup);
   }
-
   // changeTrainToPlay() {
   //   let mainToggle = document.querySelectorAll('.toggle-group');
     

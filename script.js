@@ -11,8 +11,17 @@ function runEnglishForKidsApp() {
     document.querySelector('.overlay').classList.toggle('overlay-open');
     document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
   });
+  document.querySelector('.overlay-content').querySelectorAll('a').forEach((el) => {
+    el.addEventListener('click', (event) => {
+      const id = event.target.innerHTML;
+      container.openCardCategoryPage(id);
+    })
+  })
 
-  playTrainSwitcher();
+ 
+
+    playTrainSwitcher();
+  
 }
 
 document.body.onload = runEnglishForKidsApp;
