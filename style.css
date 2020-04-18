@@ -9,11 +9,12 @@
 .overlay {
     height: 0%;
     width: 40%;
+    min-width: 300px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #27069e;
+    background: linear-gradient(180deg,#2c5358,#07d494 40%,#ccc,#fff);
     overflow-y: hidden;
     transition: 0.4s;
 }
@@ -36,9 +37,10 @@
     margin-left: 2%;
     text-transform: uppercase;
     display: block;
-    color: #f5f10e;
+    color: #0a157a;
     transition: 0.3s;
     width: 90%;
+    min-width: 250px;
 }
 
 
@@ -57,6 +59,8 @@ z-index:10;
 display: inline-block;
   width: 50px;
   height: 30px;
+  top: 5%;
+  left: 5%;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   cursor: pointer;
@@ -91,7 +95,7 @@ display: inline-block;
 }
 
 #hamburger-icon.hamburger-open span{
-    background:#058f10;
+    background:#051da5;
 }
 
  #hamburger-icon.hamburger-open span:nth-child(1) {
@@ -115,21 +119,17 @@ display: inline-block;
 }
 
 
-.toggle {
+#gameOnToggler {
     position: absolute;
     top: 10px;
-    left: 80%;
+    right: 10%;
 }
 
 .main-container {
+    max-width: 1400px;
     display: flex;
     flex-wrap: wrap;
 }
-
-/* .main-card-container{
-    z-index: 100000;
-    background-color: black;
-} */
 
 .cards-group {
     width: 280px;

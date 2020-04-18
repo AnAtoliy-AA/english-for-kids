@@ -15,6 +15,8 @@ function runEnglishForKidsApp() {
     el.addEventListener('click', (event) => {
       const id = event.target.innerHTML;
       container.openCardCategoryPage(id);
+      document.querySelector('.overlay').classList.toggle('overlay-open');
+    document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
     })
   })
 
