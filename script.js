@@ -1,14 +1,17 @@
 import CardsContainer from './src/cards-container';
+import playTrainSwitcher from './src/play-train-switcher';
 
 function runEnglishForKidsApp() {
   const container = new CardsContainer();
 
-  document.querySelectorAll('.open-close-btn').addEventlistner('click', (event) => {
-    event.preventDefault();
-    document.querySelectorAll('.overlay').toggleClass('overlay-open');
-    document.getElementById('#hamburger-icon').toggleClass('hamburger-open');
-  });
+  
   container.generateDomCardContainer();
+  // document.querySelectorAll('.open-close-btn').addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   document.querySelectorAll('.overlay').classList.toggle('overlay-open');
+  //   document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
+  // });
+  playTrainSwitcher();
 }
 
 document.body.onload = runEnglishForKidsApp;

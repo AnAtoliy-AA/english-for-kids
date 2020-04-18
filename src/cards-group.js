@@ -39,15 +39,19 @@ class CardsGroup {
 
   createDOMCards() {
     const domCards = document.createElement('div');
+    const buttonPlay = document.createElement('button');
 
     domCards.classList.add('cards-group-container');
+    buttonPlay.classList.add('button-play');
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
       domCard.addEventListener('click', (event) => {
         this.analyseCardEvent(el, event);
       });
+      domCards.appendChild(buttonPlay);
       domCards.appendChild(domCard);
     });
+    
     return domCards;
   }
 
