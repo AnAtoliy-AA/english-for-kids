@@ -94,7 +94,7 @@ class CardsContainer {
   }
   // changeTrainToPlay() {
   //   let mainToggle = document.querySelectorAll('.toggle-group');
-    
+
   //   console.log('TOGGLE', mainToggle);
   //   mainToggle.addEventListener('click', (event) => {
   //     console.log('EVENT', event.target);
