@@ -11,19 +11,35 @@ function runEnglishForKidsApp() {
     document.querySelector('.overlay').classList.toggle('overlay-open');
     document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
   });
-  document.querySelector('.overlay-content').querySelectorAll('a').forEach((el) => {
+
+  const mainMenuCategoryLink = document.querySelector('.overlay-content').querySelectorAll('a');
+
+  mainMenuCategoryLink.forEach((el) => {
     el.addEventListener('click', (event) => {
       const id = event.target.innerHTML;
-      container.openCardCategoryPage(id);
+
+      if (id === 'Main menu') {
+        console.log('xcvvvvvvvvvvvvvvv');
+        let startPage = container.getMainPage();
+        container.applyPageToDOM(startPage);
+       // container.createDomTitleCard();
+      } else {
+        container.openCardCategoryPage(id);
+      }
+     // mainMenuCategoryLink.
+      mainMenuCategoryLink.forEach((el) => {
+        el.classList.remove('main-menu-link_active');
+      });
+      event.target.classList.add('main-menu-link_active');
       document.querySelector('.overlay').classList.toggle('overlay-open');
-    document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
+      document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
     })
   })
 
- 
 
-    playTrainSwitcher();
-  
+
+  playTrainSwitcher();
+
 }
 
 document.body.onload = runEnglishForKidsApp;

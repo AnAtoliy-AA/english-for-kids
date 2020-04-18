@@ -1,3 +1,7 @@
+.wrapper {
+  max-width: 1280px;
+  
+}
 .hidden {
     display: none;
 }
@@ -30,7 +34,7 @@
     margin-top: 30px;
 }
 
-.overlay a, .overlay h4 {
+.overlay a {
     padding: 5px;
     text-decoration: none;
     font-size: 24px;
@@ -43,9 +47,12 @@
     min-width: 250px;
 }
 
+.main-menu-link_active {
+  background-color: #fd2002;
+}
 
 .overlay a:hover, .overlay a:focus {
-    color: #1b18c9;
+    color: #e2240b;
 }
 
 .open-close-btn {
@@ -120,7 +127,7 @@ display: inline-block;
 
 
 #gameOnToggler {
-    position: absolute;
+  position: absolute;
     top: 10px;
     right: 10%;
 }
@@ -132,7 +139,7 @@ display: inline-block;
 }
 
 .cards-group {
-    width: 280px;
+    width: 270px;
     height: 250px;
     border-radius: 5px;
     color: #070c11;
@@ -165,10 +172,6 @@ display: inline-block;
     margin: 30px auto;
 }
 
-.main-card-text{
-
-}
-
 .card {
     position: relative;
     -webkit-transform-style: preserve-3d;
@@ -179,7 +182,7 @@ display: inline-block;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: flex-end;
-    width: 280px;
+    width: 270px;
     height: 250px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -216,9 +219,19 @@ display: inline-block;
     backface-visibility: hidden;
 }
 
-/* .back-face {
-    transform: rotateY(180deg);
-} */
+.button-play{
+ width: 280px;
+ height: 40px;
+ margin-left: 35%;
+ margin-bottom: 20px;
+ justify-content: center;
+ text-align: center;
+ background-color: rgb(23, 102, 15);
+ border: 2px solid rgb(2, 54, 4);
+ border-radius: 12px;
+ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 .rotate {
     position: absolute;
     right: 4%;
@@ -227,6 +240,19 @@ display: inline-block;
     max-width: 30px;
     text-align: right;
 }
+
+@media screen and (max-width: 650px) {
+ .button-play {
+    margin-left: 30%;
+   }
+}
+
+@media screen and (max-width: 380px) {
+  .button-play {
+     margin-left: 5%;
+    }
+ }
+
 
 @media screen and (max-height: 450px) {
     .overlay {overflow-y: auto;}
