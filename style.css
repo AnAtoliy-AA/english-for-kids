@@ -141,6 +141,7 @@ display: inline-block;
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
+    flex: 0 0 40%;
 }
 
 .cards-group {
@@ -259,6 +260,7 @@ display: inline-block;
   .main-container {
      margin-left: 3%;
     }
+
  }
 @media screen and (max-width: 768px) {
   .main-container {

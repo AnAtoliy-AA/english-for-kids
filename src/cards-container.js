@@ -81,9 +81,6 @@ class CardsContainer {
 
   applyDomCardsToMainContainer(event) {
     let activeMainCardId = event.target.id;
-    // let cardGroup = this.selectCardGroup(activeMainCardId);
-    // let domCardGroup = cardGroup.createDOMCards();
-    // this.applyPageToDOM(domCardGroup);
     this.openCardCategoryPage(activeMainCardId);
   }
 

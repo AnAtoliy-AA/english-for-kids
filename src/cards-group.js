@@ -56,13 +56,12 @@ class CardsGroup {
     if (event.target.id) {
       card.audioPlay(event.target.id);
     }
-    else {
+    else if(event.target.classList.contains('rotate')) {
       console.log(card);
-      console.log(event.target.previousSibling.previousSibling);
+      console.log(event.target);
       event.target.previousSibling.classList.toggle('flip');
       event.target.previousSibling.previousSibling.classList.toggle('flip');
     }
-
   }
 }
 
