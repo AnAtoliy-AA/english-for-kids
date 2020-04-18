@@ -6,6 +6,8 @@ function playTrainSwitcher() {
                 const cardsGroups = document.querySelectorAll('.cards-group');
                 const cardsText = document.querySelectorAll('.card-text');
                 const rotateImg = document.querySelectorAll('.rotate');
+                const audioPlayButton = document.querySelector('.button-play');
+
 
                 if (cardsGroups) {
                     cardsGroups.forEach((el) => {
@@ -21,6 +23,9 @@ function playTrainSwitcher() {
                     rotateImg.forEach((el) => {
                         el.classList.toggle('hidden');
                     });
+                }
+                if (audioPlayButton) {
+                    audioPlayButton.classList.toggle('hidden');
                 }
             });
         })
