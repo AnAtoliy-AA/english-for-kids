@@ -86,23 +86,6 @@ class CardsContainer {
     let cardGroup = this.selectCardGroup(id);
     let domCardGroup = cardGroup.createDOMCards();
     this.applyPageToDOM(domCardGroup);
-    const buttonPlay = document.querySelector('.button-play');
-    buttonPlay.addEventListener('click', () => {
-      this.buttonPlayAudioGame(id);
-    });
-  }
-
-  buttonPlayAudioGame() {
-    // const buttonPlay = document.querySelector('.button-play');
-    // const starContainer = document.querySelector('.star-container');
-    // const starWin = document.createElement('img');
-    // const starLoose = document.createElement('img');
-
-    // buttonPlay.innerHTML = 'Repeat';
-    // starWin.src = './assets/img/star-win.png';
-    // starLoose.src = './assets/img/star-loose.png';
-    // starContainer.appendChild(starLoose);
-    // starContainer.appendChild(starWin);
   }
 }
 

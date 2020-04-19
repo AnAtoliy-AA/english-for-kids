@@ -56,8 +56,12 @@ class CardsGroup {
     buttonPlay.innerHTML = 'Start game';
 
     buttonPlay.addEventListener('click', () => {
+     this.lastAudio = randomElement;
+      console.log('this.lastaudioBUTTON:', this.lastAudio);
       this.audioPlay(randomElement);
-      this.lastAudio = randomElement;
+     
+      buttonPlay.innerHTML = 'Repeat';
+      
       this.setGameStarted(true);
     });
 
@@ -102,8 +106,10 @@ class CardsGroup {
           this.enabledCardsIds = this.removeElementFromArray(this.enabledCardsIds, this.activeCardId);
           const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
           console.log('this.enabledCardsIds',this.enabledCardsIds);
-          this.audioPlay(randomElement);
+          console.log('LAAST AUDIO:',randomElement);
           this.lastAudio = randomElement;
+          this.audioPlay( this.lastAudio);
+          
           if (this.enabledCardsIds.length === 0) {
             this.gameOver();
           }
@@ -132,7 +138,7 @@ class CardsGroup {
   removeElementFromArray(array, value) {
     const arr = [...array];
     const index = arr.indexOf(value);
-    
+
     arr.splice(index, 1);
     return arr;
   }
