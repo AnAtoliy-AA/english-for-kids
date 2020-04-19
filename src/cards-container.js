@@ -36,7 +36,6 @@ class CardsContainer {
     this.applyPageToDOM(startPage);
   }
 
-
   generateCardGroups() {
     let container = this;
     return Object.values(cardsGroupNames).map(k => {

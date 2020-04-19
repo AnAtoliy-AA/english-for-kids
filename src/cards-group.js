@@ -64,6 +64,7 @@ class CardsGroup {
     domCards.appendChild(starContainer);
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
+
       domCard.addEventListener('click', (event) => {
         this.analyseCardEvent(event);
       });
@@ -74,6 +75,9 @@ class CardsGroup {
       }
       domCards.appendChild(domCard);
     });
+    if (!this.container.trainMode) {
+      buttonPlay.classList.remove('hidden');
+    }
     domCards.appendChild(buttonPlay);
 
     return domCards;
@@ -128,6 +132,7 @@ class CardsGroup {
   removeElementFromArray(array, value) {
     const arr = [...array];
     const index = arr.indexOf(value);
+    
     arr.splice(index, 1);
     return arr;
   }
