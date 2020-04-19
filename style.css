@@ -4,7 +4,6 @@
   margin-right: auto;
 }
 
-
 .hidden {
     display: none;
     opacity: 0;
@@ -189,10 +188,8 @@ display: inline-block;
     margin: 30px auto;
 }
 .star-container {
-  /* height: 40px; */
   width: 85%;
-  /* margin-top: 40px; */
-  /* background: #e2240b; */
+  
   display: flex;
   justify-content: flex-end;
   max-width: 989px;
@@ -314,9 +311,7 @@ display: inline-block;
   .main-container {
      margin-left: 3%;
     }
-    /* .button-play {
-      margin-left: 35%;
-     } */
+ 
      .star-container {
       max-width: 1018px;
   }

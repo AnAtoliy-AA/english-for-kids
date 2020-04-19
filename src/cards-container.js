@@ -1,7 +1,6 @@
 import CardsGroup from './cards-group';
 import cardsConfig from './cards-config';
 
-
 const cardsGroupNames = {
   ACTION_A: 'Action (set A)',
   ACTION_B: 'Action (set B)',
@@ -12,15 +11,18 @@ const cardsGroupNames = {
   FAMILY: 'Family',
   COLORS: 'Colors',
 }
+
 class CardsContainer {
   constructor() {
     this.cardsGroups = this.generateCardGroups();
     this.cardsConfig = cardsConfig;
     this.trainMode = true;
   }
+
   containerToggleGameMode() {
     this.trainMode = !this.trainMode;
   }
+
   createDOMMainContainer() {
     const { body } = document;
     const cardContainer = document.createElement('div');
@@ -43,7 +45,6 @@ class CardsContainer {
     });
   }
 
-
   getMainPage() {
     let mainPage = document.createElement('div');
     mainPage.classList.add('cards-group-container');
@@ -57,6 +58,7 @@ class CardsContainer {
       }
       mainPage.appendChild(domTitleCard);
     });
+
     return mainPage;
   }
 
@@ -68,8 +70,7 @@ class CardsContainer {
   }
 
   selectCardGroup(mainCardId) {
-    let cardGroup = this.cardsGroups.find(el => el.name === mainCardId);
-    return cardGroup;
+    return this.cardsGroups.find(el => el.name === mainCardId);
   }
 
   applyPageToDOM(generatedDivs) {

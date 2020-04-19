@@ -9,7 +9,6 @@ class Card {
   }
 
   createDOMCard() {
-
     const cardItem = document.createElement('div');
     const cardImgUrl = `url(./assets/${this.image})`;
     const cardFront = document.createElement('div');

@@ -44,7 +44,7 @@ function playTrainSwitcher(container) {
             starContainer.removeChild(starContainer.firstChild);
           }
         }
-    
+
         if (audioPlayButton) {
           audioPlayButton.classList.toggle('hidden');
         }
