@@ -98,15 +98,21 @@ class CardsContainer {
   buttonPlayAudioGame(id) {
     const buttonPlay = document.querySelector('.button-play');
     const starContainer = document.querySelector('.star-container');
+    const starWin = document.createElement('img');
+    const starLoose = document.createElement('img');
     // const cardsConfig = this.cardsConfig;
     // const audioRow = cardsConfig.find(el => el === id)
 
     buttonPlay.innerHTML = 'Repeat';
+    starWin.src = './assets/img/star-win.png';
+    starLoose.src = './assets/img/star-loose.png';
     // buttonPlay.style.backgroundImage = './assets/img/rotate.png';
     console.log('button', id);
     console.log('buttonZZ', buttonPlay);
     // console.log('audioRow', cardsConfig);
     // console.log('audioRowZZ', audioRow);
+    starContainer.appendChild(starLoose);
+    starContainer.appendChild(starLoose);
 
   }
 
