@@ -99,16 +99,16 @@ class CardsContainer {
   }
 
   buttonPlayAudioGame() {
-    const buttonPlay = document.querySelector('.button-play');
-    const starContainer = document.querySelector('.star-container');
-    const starWin = document.createElement('img');
-    const starLoose = document.createElement('img');
+    // const buttonPlay = document.querySelector('.button-play');
+    // const starContainer = document.querySelector('.star-container');
+    // const starWin = document.createElement('img');
+    // const starLoose = document.createElement('img');
 
-    buttonPlay.innerHTML = 'Repeat';
-    starWin.src = './assets/img/star-win.png';
-    starLoose.src = './assets/img/star-loose.png';
-    starContainer.appendChild(starLoose);
-    starContainer.appendChild(starWin);
+    // buttonPlay.innerHTML = 'Repeat';
+    // starWin.src = './assets/img/star-win.png';
+    // starLoose.src = './assets/img/star-loose.png';
+    // starContainer.appendChild(starLoose);
+    // starContainer.appendChild(starWin);
   }
 }
 

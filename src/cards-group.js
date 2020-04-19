@@ -72,7 +72,12 @@ class CardsGroup {
   }
 
   analyseCardEvent(event) {
+    const starContainer = document.querySelector('.star-container');
+    const starWin = document.createElement('img');
+    const starLoose = document.createElement('img');
 
+    starWin.src = './assets/img/star-win.png';
+    starLoose.src = './assets/img/star-loose.png';
     if (event.target.id) {
       if (this.container.trainMode) {
         this.audioPlay(event.target.id);
@@ -81,11 +86,18 @@ class CardsGroup {
         if (this.activeCardId === this.lastAudio) {
           console.log('MAtCH');
           console.log('this.enabledCardsIds',this.enabledCardsIds);
+          starContainer.appendChild(starWin);
           this.enabledCardsIds = this.removeElementFromArray(this.enabledCardsIds, this.activeCardId);
           const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
           console.log('this.enabledCardsIds',this.enabledCardsIds);
           this.audioPlay(randomElement);
+          this.lastAudio = randomElement;
+          if (this.enabledCardsIds.length === 0) {
+            this.gameOver();
+          }
         } else {
+          
+         starContainer.appendChild(starLoose);
           console.log('DO NOT MAtCH');
         }
       }
@@ -108,12 +120,16 @@ class CardsGroup {
     return arr;
   }
 
-
+  gameOver() {
+    console.log('UUUUUUU');
+  }
 
   audioPlay(name) {
-    const audio = new Audio(`./assets/audio/${name}.mp3`);
+    if (name) {
+      const audio = new Audio(`./assets/audio/${name}.mp3`);
 
-    audio.play();
+      audio.play();
+    }
   }
 }
 
