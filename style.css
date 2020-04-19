@@ -184,10 +184,17 @@ display: inline-block;
     margin: 30px auto;
 }
 .star-container {
-  height: 20px;
+  height: 40px;
   width: 100%;
   margin-top: 20px;
   /* background: #e2240b; */
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  line-height: 36px;
+  font-size: 36px;
 }
 .card {
     position: relative;

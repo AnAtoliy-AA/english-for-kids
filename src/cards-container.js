@@ -97,6 +97,7 @@ class CardsContainer {
 
   buttonPlayAudioGame(id) {
     const buttonPlay = document.querySelector('.button-play');
+    const starContainer = document.querySelector('.star-container');
     // const cardsConfig = this.cardsConfig;
     // const audioRow = cardsConfig.find(el => el === id)
 
