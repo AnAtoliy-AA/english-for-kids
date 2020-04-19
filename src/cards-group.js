@@ -64,11 +64,14 @@ class CardsGroup {
     domCards.appendChild(starContainer);
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
-      // if (this.container.trainMode) {
       domCard.addEventListener('click', (event) => {
         this.analyseCardEvent(event);
       });
-      // }
+      if (!this.container.trainMode) {
+       domCard.querySelector('.card-text').classList.add('hidden');
+       domCard.querySelector('.rotate').classList.add('hidden');
+       domCard.classList.add('card-cover');
+      }
       domCards.appendChild(domCard);
     });
     domCards.appendChild(buttonPlay);
