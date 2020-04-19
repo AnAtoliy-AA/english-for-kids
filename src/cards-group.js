@@ -60,7 +60,10 @@ class CardsGroup {
       console.log('this.lastaudioBUTTON:', this.lastAudio);
       this.audioPlay(randomElement);
      
-      buttonPlay.innerHTML = 'Repeat';
+      buttonPlay.innerHTML = '';
+      buttonPlay.classList.remove('button-play');
+      buttonPlay.classList.add('button-play-active');
+      buttonPlay.style.backgroundImage = 'url(./assets/img/repeat.png)';
       
       this.setGameStarted(true);
     });
