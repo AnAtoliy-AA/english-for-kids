@@ -5,6 +5,7 @@ function playTrainSwitcher() {
             btn.addEventListener('click', () => {
                 const cardsGroups = document.querySelectorAll('.cards-group');
                 const cardsText = document.querySelectorAll('.card-text');
+                const cards = document.querySelectorAll('.card');
                 const rotateImg = document.querySelectorAll('.rotate');
                 const audioPlayButton = document.querySelector('.button-play');
                // const frontCardImg = document.querySelectorAll('.front-face');
@@ -13,6 +14,11 @@ function playTrainSwitcher() {
                 if (cardsGroups) {
                     cardsGroups.forEach((el) => {
                         el.classList.toggle('cards-group_active');
+                    });
+                }
+                if (cards) {
+                    cards.forEach((el) => {
+                        el.classList.toggle('card-cover');
                     });
                 }
                 if (cardsText) {

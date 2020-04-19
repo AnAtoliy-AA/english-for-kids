@@ -38,7 +38,7 @@ class CardsGroup {
     domCards.classList.add('cards-group-container');
     buttonPlay.classList.add('button-play');
     buttonPlay.classList.add('hidden');
-    buttonPlay.innerHTML = 'Play';
+    buttonPlay.innerHTML = 'Start game';
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
       domCard.addEventListener('click', (event) => {

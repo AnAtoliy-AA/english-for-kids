@@ -7,6 +7,12 @@
 
 .hidden {
     display: none;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .header-container {
@@ -223,6 +229,14 @@ display: inline-block;
     padding: 20px;
     transition: .5s;
     backface-visibility: hidden;
+}
+
+.card-cover .front-face,
+.card-cover .back-face
+ {
+  background-size: cover;
+  background-position: 50%;
+  height: 100%;
 }
 
 .button-play{

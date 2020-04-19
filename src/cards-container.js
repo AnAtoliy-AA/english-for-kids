@@ -90,12 +90,13 @@ class CardsContainer {
     this.applyPageToDOM(domCardGroup);
     const buttonPlay = document.querySelector('.button-play');
      buttonPlay.addEventListener('click', () => {
-         this.buttonPlayAudioGame();
+         this.buttonPlayAudioGame(id);
        });
   }
 
-   buttonPlayAudioGame() {
-    console.log('button');
+   buttonPlayAudioGame(id) {
+    console.log('button',id);
+    console.log('buttonZZ', this.cardsConfig);
   }
 
   // changeTrainToPlay() {
