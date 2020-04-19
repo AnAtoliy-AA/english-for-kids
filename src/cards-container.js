@@ -61,6 +61,9 @@ class CardsContainer {
       domTitleCard.addEventListener('click', (event) => {
         this.applyDomCardsToMainContainer(event);
       });
+      if (!this.trainMode) {
+        domTitleCard.classList.add('cards-group_active');
+      }
       mainPage.appendChild(domTitleCard);
     });
     return mainPage;

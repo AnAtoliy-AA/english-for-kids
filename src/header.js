@@ -1,5 +1,5 @@
 function mainMenu(container) {
-  
+  const mainMenu = 'Main menu';
  
     document.querySelector('.open-close-btn').addEventListener('click', (event) => {
         event.preventDefault();
@@ -13,7 +13,7 @@ function mainMenu(container) {
         el.addEventListener('click', (event) => {
           const id = event.target.innerHTML;
     
-          if (id === 'Main menu') {
+          if (id === mainMenu) {
             let startPage = container.getMainPage();
             container.applyPageToDOM(startPage);
           } else {
