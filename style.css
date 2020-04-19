@@ -15,6 +15,10 @@
     padding: 0;
 }
 
+.inactive {
+  opacity: .5;
+}
+
 .header-container {
     display: flex;
 }

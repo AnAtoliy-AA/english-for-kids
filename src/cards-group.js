@@ -97,19 +97,21 @@ class CardsGroup {
     if (event.target.id) {
       if (this.container.trainMode) {
         this.audioPlay(event.target.id);
-      } else if (this.gameStarted){
+      } else if (this.gameStarted && !event.target.classList.contains('inactive')){
         this.activeCardId = event.target.id;
         if (this.activeCardId === this.lastAudio) {
+          const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+
           this.audioPlay('correct');
+          event.target.classList.add('inactive');
           console.log('MAtCH');
           console.log('this.enabledCardsIds',this.enabledCardsIds);
           starContainer.appendChild(starWin);
           this.enabledCardsIds = this.removeElementFromArray(this.enabledCardsIds, this.activeCardId);
-          const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
           console.log('this.enabledCardsIds',this.enabledCardsIds);
           console.log('LAAST AUDIO:',randomElement);
           this.lastAudio = randomElement;
-          this.audioPlay( this.lastAudio);
+          this.audioPlay(this.lastAudio);
           
           if (this.enabledCardsIds.length === 0) {
             this.gameOver();
