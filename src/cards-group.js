@@ -73,7 +73,7 @@ class CardsGroup {
         this.analyseCardEvent(event);
       });
       if (!this.container.trainMode) {
-       domCard.querySelector('.card-text').classList.togle('hidden');
+       domCard.querySelector('.card-text').classList.toggle('hidden');
        domCard.querySelector('.rotate').classList.toggle('hidden');
        domCard.classList.toggle('card-cover');
       }
@@ -100,6 +100,7 @@ class CardsGroup {
       } else if (this.gameStarted){
         this.activeCardId = event.target.id;
         if (this.activeCardId === this.lastAudio) {
+          this.audioPlay('correct');
           console.log('MAtCH');
           console.log('this.enabledCardsIds',this.enabledCardsIds);
           starContainer.appendChild(starWin);
@@ -114,7 +115,7 @@ class CardsGroup {
             this.gameOver();
           }
         } else {
-          
+          this.audioPlay('error');
          starContainer.appendChild(starLoose);
           console.log('DO NOT MAtCH');
         }
@@ -144,6 +145,9 @@ class CardsGroup {
   }
 
   gameOver() {
+    this.audioPlay('success');
+    this.container.clearPage();
+    
     console.log('UUUUUUU');
   }
 
