@@ -277,6 +277,14 @@ display: inline-block;
     text-align: right;
 }
 
+.win-message {
+  margin-top: 50px;
+ width: 480px;
+ height: 400px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
 @media screen and (min-width: 1281px) {
   #gameOnToggler {
       left: 75%;

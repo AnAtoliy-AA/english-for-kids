@@ -145,10 +145,17 @@ class CardsGroup {
   }
 
   gameOver() {
+    const mainContainer = document.querySelector('.main-container');
+    const winMessage = document.createElement('div');
+
+
     this.audioPlay('success');
     this.container.clearPage();
+    winMessage.classList.add('win-message');
+    winMessage.style.backgroundImage = 'url(./assets/img/success.jpg)';
+    mainContainer.appendChild(winMessage);
     
-    console.log('UUUUUUU');
+    console.log('UUUUUUU',this.container);
   }
 
   audioPlay(name) {
