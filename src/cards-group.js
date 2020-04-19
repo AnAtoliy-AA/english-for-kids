@@ -11,6 +11,10 @@ class CardsGroup {
     this.activeCardId = null;
     this.lastAudio = '';
     this.scoreResult = [];
+
+    this.gameStarted = false;
+
+
   }
 
   createDomTitleCard() {
@@ -54,6 +58,7 @@ class CardsGroup {
     buttonPlay.addEventListener('click', () => {
       this.audioPlay(randomElement);
       this.lastAudio = randomElement;
+      this.setGameStarted(true);
     });
 
     domCards.appendChild(starContainer);
@@ -81,7 +86,7 @@ class CardsGroup {
     if (event.target.id) {
       if (this.container.trainMode) {
         this.audioPlay(event.target.id);
-      } else {
+      } else if (this.gameStarted){
         this.activeCardId = event.target.id;
         if (this.activeCardId === this.lastAudio) {
           console.log('MAtCH');
@@ -111,6 +116,10 @@ class CardsGroup {
         });
       });
     }
+  }
+
+  setGameStarted(value) {
+    this.gameStarted = value;
   }
 
   removeElementFromArray(array, value) {
