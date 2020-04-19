@@ -16,8 +16,11 @@ class CardsContainer {
   constructor() {
     this.cardsGroups = this.generateCardGroups();
     this.cardsConfig = cardsConfig;
+    this.trainMode = true;
   }
-
+  containerToggleGameMode() {
+    this.trainMode = !this.trainMode;
+  }
   createDOMMainContainer() {
     const { body } = document;
     const cardContainer = document.createElement('div');
@@ -35,15 +38,16 @@ class CardsContainer {
 
 
   generateCardGroups() {
+    let container = this;
     const cardsGroups = [
-      new CardsGroup(cardsGroupNames.ACTION_A, cardsConfig[cardsGroupNames.ACTION_A]),
-      new CardsGroup(cardsGroupNames.ACTION_B, cardsConfig[cardsGroupNames.ACTION_B]),
-      new CardsGroup(cardsGroupNames.ANIMAL_A, cardsConfig[cardsGroupNames.ANIMAL_A]),
-      new CardsGroup(cardsGroupNames.ANIMAL_B, cardsConfig[cardsGroupNames.ANIMAL_B]),
-      new CardsGroup(cardsGroupNames.CLOTHES, cardsConfig[cardsGroupNames.CLOTHES]),
-      new CardsGroup(cardsGroupNames.EMOTIONS, cardsConfig[cardsGroupNames.EMOTIONS]),
-      new CardsGroup(cardsGroupNames.FAMILY, cardsConfig[cardsGroupNames.FAMILY]),
-      new CardsGroup(cardsGroupNames.COLORS, cardsConfig[cardsGroupNames.COLORS]),
+      new CardsGroup(cardsGroupNames.ACTION_A, cardsConfig[cardsGroupNames.ACTION_A], container),
+      new CardsGroup(cardsGroupNames.ACTION_B, cardsConfig[cardsGroupNames.ACTION_B], container),
+      new CardsGroup(cardsGroupNames.ANIMAL_A, cardsConfig[cardsGroupNames.ANIMAL_A], container),
+      new CardsGroup(cardsGroupNames.ANIMAL_B, cardsConfig[cardsGroupNames.ANIMAL_B], container),
+      new CardsGroup(cardsGroupNames.CLOTHES, cardsConfig[cardsGroupNames.CLOTHES], container),
+      new CardsGroup(cardsGroupNames.EMOTIONS, cardsConfig[cardsGroupNames.EMOTIONS], container),
+      new CardsGroup(cardsGroupNames.FAMILY, cardsConfig[cardsGroupNames.FAMILY], container),
+      new CardsGroup(cardsGroupNames.COLORS, cardsConfig[cardsGroupNames.COLORS], container),
     ]
     return cardsGroups;
   }

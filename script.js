@@ -8,7 +8,7 @@ function runEnglishForKidsApp() {
 
   container.generateDomCardContainer();
    mainMenu(container);
-  playTrainSwitcher();
+  playTrainSwitcher(container);
 }
 
 document.body.onload = runEnglishForKidsApp;

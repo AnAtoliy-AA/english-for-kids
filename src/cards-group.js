@@ -1,9 +1,16 @@
 import Card from './card';
 class CardsGroup {
-  constructor(name, cardsConfig) {
+  constructor(name, cardsConfig, container) {
     this.name = name;
     this.cardsConfig = cardsConfig;
     this.cardsArray = this.generateCards();
+    this.container = container;
+
+    this.selectedCardsIds = [];
+    this.enabledCardsIds = this.cardsArray.map(el => el.word);
+    this.activeCardId = null;
+    this.lastAudio = '';
+    this.scoreResult = [];
   }
 
   createDomTitleCard() {
@@ -26,9 +33,7 @@ class CardsGroup {
   }
 
   generateCards() {
-    const cards = this.cardsConfig.map((el) => {
-      return new Card(el);
-    })
+    const cards = this.cardsConfig.map((el) => new Card(el));
 
     return cards;
   }
@@ -37,10 +42,7 @@ class CardsGroup {
     const domCards = document.createElement('div');
     const buttonPlay = document.createElement('div');
     const starContainer = document.createElement('div');
-    const audioRow = this.cardsConfig.map((el) => {
-
-      return el.word;
-    });
+    const audioRow = this.cardsConfig.map((el) => el.word);
     const randomElement = audioRow[Math.floor(Math.random() * audioRow.length)];
 
     domCards.classList.add('cards-group-container');
@@ -51,14 +53,17 @@ class CardsGroup {
 
     buttonPlay.addEventListener('click', () => {
       this.audioPlay(randomElement);
+      this.lastAudio = randomElement;
     });
 
     domCards.appendChild(starContainer);
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
+      // if (this.container.trainMode) {
       domCard.addEventListener('click', (event) => {
-        this.analyseCardEvent(el, event);
+        this.analyseCardEvent(event);
       });
+      // }
       domCards.appendChild(domCard);
     });
     domCards.appendChild(buttonPlay);
@@ -66,11 +71,25 @@ class CardsGroup {
     return domCards;
   }
 
-  analyseCardEvent(card, event) {
+  analyseCardEvent(event) {
+
     if (event.target.id) {
-      this.audioPlay(event.target.id);
-    }
-    else if (event.target.classList.contains('rotate')) {
+      if (this.container.trainMode) {
+        this.audioPlay(event.target.id);
+      } else {
+        this.activeCardId = event.target.id;
+        if (this.activeCardId === this.lastAudio) {
+          console.log('MAtCH');
+          console.log('this.enabledCardsIds',this.enabledCardsIds);
+          this.enabledCardsIds = this.removeElementFromArray(this.enabledCardsIds, this.activeCardId);
+          const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+          console.log('this.enabledCardsIds',this.enabledCardsIds);
+          this.audioPlay(randomElement);
+        } else {
+          console.log('DO NOT MAtCH');
+        }
+      }
+    } else if (event.target.classList.contains('rotate')) {
       event.target.previousSibling.classList.toggle('flip');
       event.target.previousSibling.previousSibling.classList.toggle('flip');
       document.querySelectorAll('.card').forEach((el) => {
@@ -81,6 +100,15 @@ class CardsGroup {
       });
     }
   }
+
+  removeElementFromArray(array, value) {
+    const arr = [...array];
+    const index = arr.indexOf(value);
+    arr.splice(index, 1);
+    return arr;
+  }
+
+
 
   audioPlay(name) {
     const audio = new Audio(`./assets/audio/${name}.mp3`);
