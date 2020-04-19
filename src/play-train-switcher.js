@@ -9,6 +9,7 @@ function playTrainSwitcher(container) {
         const rotateImg = document.querySelectorAll('.rotate');
         const audioPlayButton = document.querySelector('.button-play');
         const starContainer = document.querySelector('.star-container');
+        const frontFaceCard = document.querySelectorAll('.front-face');
 
         container.containerToggleGameMode();
 
@@ -20,6 +21,11 @@ function playTrainSwitcher(container) {
         if (cards) {
           cards.forEach((el) => {
             el.classList.toggle('card-cover');
+          });
+        }
+        if (frontFaceCard) {
+          frontFaceCard.forEach((el) => {
+            el.classList.remove('inactive');
           });
         }
         if (cardsText) {

@@ -13,9 +13,7 @@ class CardsGroup {
     this.scoreResult = [];
 
     this.gameStarted = false;
-
-
-  }
+    }
 
   createDomTitleCard() {
     const cardsGroup = document.createElement('div');
@@ -94,7 +92,7 @@ class CardsGroup {
     const starContainer = document.querySelector('.star-container');
     const starWin = document.createElement('img');
     const starLoose = document.createElement('img');
-
+   
     starWin.src = './assets/img/star-win.png';
     starLoose.src = './assets/img/star-loose.png';
     if (event.target.id) {
