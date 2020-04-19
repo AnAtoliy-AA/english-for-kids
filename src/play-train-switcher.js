@@ -10,7 +10,8 @@ function playTrainSwitcher() {
                 const rotateImg = document.querySelectorAll('.rotate');
                 const audioPlayButton = document.querySelector('.button-play');
                
-               // const frontCardImg = document.querySelectorAll('.front-face');
+                const frontCardImg = document.querySelectorAll('.front-face');
+                const backCardImg = document.querySelectorAll('.back-face')
 
               //  mainContainer.appendChild(starContainer);
                 if (cardsGroups) {
@@ -33,11 +34,14 @@ function playTrainSwitcher() {
                         el.classList.toggle('hidden');
                     });
                 }
-                // if (frontCardImg) {
-                //     frontCardImg.forEach((el) => {
-                //         event.preventDefault(el);
-                //     });
-                // }
+                if (frontCardImg) {
+                    frontCardImg.forEach((el) => {
+                        el.classList.toggle('flip');
+                    });
+                    backCardImg.forEach((el) => {
+                        el.classList.toggle('flip');
+                    });
+                }
                 if (audioPlayButton) {
                     audioPlayButton.classList.toggle('hidden');    
                 }
