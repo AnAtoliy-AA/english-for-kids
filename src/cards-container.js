@@ -31,7 +31,6 @@ class CardsContainer {
     this.createDOMMainContainer();
     let startPage = this.getMainPage();
     this.applyPageToDOM(startPage);
-    // this.changeTrainToPlay();
   }
 
 
@@ -95,35 +94,18 @@ class CardsContainer {
     });
   }
 
-  buttonPlayAudioGame(id) {
+  buttonPlayAudioGame() {
     const buttonPlay = document.querySelector('.button-play');
     const starContainer = document.querySelector('.star-container');
     const starWin = document.createElement('img');
     const starLoose = document.createElement('img');
-    // const cardsConfig = this.cardsConfig;
-    // const audioRow = cardsConfig.find(el => el === id)
 
     buttonPlay.innerHTML = 'Repeat';
     starWin.src = './assets/img/star-win.png';
     starLoose.src = './assets/img/star-loose.png';
-    // buttonPlay.style.backgroundImage = './assets/img/rotate.png';
-    console.log('button', id);
-    console.log('buttonZZ', buttonPlay);
-    // console.log('audioRow', cardsConfig);
-    // console.log('audioRowZZ', audioRow);
     starContainer.appendChild(starLoose);
-    starContainer.appendChild(starLoose);
-
+    starContainer.appendChild(starWin);
   }
-
-  // changeTrainToPlay() {
-  //   let mainToggle = document.querySelectorAll('.toggle-group');
-
-  //   console.log('TOGGLE', mainToggle);
-  //   mainToggle.addEventListener('click', (event) => {
-  //     console.log('EVENT', event.target);
-  //   });
-  // }
 }
 
 export default CardsContainer;

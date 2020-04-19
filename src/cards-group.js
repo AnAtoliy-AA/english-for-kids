@@ -21,6 +21,7 @@ class CardsGroup {
     cardsGroupText.classList.add('main-card-text');
     cardsGroup.appendChild(cardsGroupImg);
     cardsGroup.appendChild(cardsGroupText);
+
     return cardsGroup;
   }
 
@@ -28,6 +29,7 @@ class CardsGroup {
     const cards = this.cardsConfig.map((el) => {
       return new Card(el);
     })
+
     return cards;
   }
 
@@ -35,21 +37,28 @@ class CardsGroup {
     const domCards = document.createElement('div');
     const buttonPlay = document.createElement('div');
     const starContainer = document.createElement('div');
+    const audioRow = this.cardsConfig.map((el) => {
+
+      return el.word;
+    });
+    const randomElement = audioRow[Math.floor(Math.random() * audioRow.length)];
 
     domCards.classList.add('cards-group-container');
     starContainer.classList.add('star-container');
     buttonPlay.classList.add('button-play');
     buttonPlay.classList.add('hidden');
     buttonPlay.innerHTML = 'Start game';
+
+    buttonPlay.addEventListener('click', () => {
+      this.audioPlay(randomElement);
+    });
+
     domCards.appendChild(starContainer);
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
       domCard.addEventListener('click', (event) => {
         this.analyseCardEvent(el, event);
       });
-      // buttonPlay.addEventListener('click', () => {
-      //   this.buttonPlayAudioGame();
-      // });
       domCards.appendChild(domCard);
     });
     domCards.appendChild(buttonPlay);
@@ -59,17 +68,13 @@ class CardsGroup {
 
   analyseCardEvent(card, event) {
     if (event.target.id) {
-      card.audioPlay(event.target.id);
+      this.audioPlay(event.target.id);
     }
     else if (event.target.classList.contains('rotate')) {
-      //console.log(card);
-      // console.log(event.target);
       event.target.previousSibling.classList.toggle('flip');
       event.target.previousSibling.previousSibling.classList.toggle('flip');
       document.querySelectorAll('.card').forEach((el) => {
         el.addEventListener('blur', () => {
-          // el.mouseleave( ()=> {
-          console.log('elem', el);
           event.target.previousSibling.classList.toggle('flip');
           event.target.previousSibling.previousSibling.classList.toggle('flip');
         });
@@ -77,9 +82,11 @@ class CardsGroup {
     }
   }
 
-  // buttonPlayAudioGame() {
-  //   console.log('button');
-  // }
+  audioPlay(name) {
+    const audio = new Audio(`./assets/audio/${name}.mp3`);
+
+    audio.play();
+  }
 }
 
 export default CardsGroup;

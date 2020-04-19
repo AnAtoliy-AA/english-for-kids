@@ -39,13 +39,6 @@ class Card {
 
     return cardItem;
   }
-
-  audioPlay(name) {
-    const audio = new Audio(`./assets/audio/${name}.mp3`);
-
-    audio.play();
-  }
-
 }
 
 export default Card;
