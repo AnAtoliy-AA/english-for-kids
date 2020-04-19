@@ -7,6 +7,7 @@ function playTrainSwitcher() {
                 const cardsText = document.querySelectorAll('.card-text');
                 const rotateImg = document.querySelectorAll('.rotate');
                 const audioPlayButton = document.querySelector('.button-play');
+               // const frontCardImg = document.querySelectorAll('.front-face');
 
 
                 if (cardsGroups) {
@@ -24,6 +25,11 @@ function playTrainSwitcher() {
                         el.classList.toggle('hidden');
                     });
                 }
+                // if (frontCardImg) {
+                //     frontCardImg.forEach((el) => {
+                //         event.preventDefault(el);
+                //     });
+                // }
                 if (audioPlayButton) {
                     audioPlayButton.classList.toggle('hidden');
                 }

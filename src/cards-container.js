@@ -84,11 +84,20 @@ class CardsContainer {
     this.openCardCategoryPage(activeMainCardId);
   }
 
-  openCardCategoryPage(id) {
+  openCardCategoryPage(id) { 
     let cardGroup = this.selectCardGroup(id);
     let domCardGroup = cardGroup.createDOMCards();
     this.applyPageToDOM(domCardGroup);
+    const buttonPlay = document.querySelector('.button-play');
+     buttonPlay.addEventListener('click', () => {
+         this.buttonPlayAudioGame();
+       });
   }
+
+   buttonPlayAudioGame() {
+    console.log('button');
+  }
+
   // changeTrainToPlay() {
   //   let mainToggle = document.querySelectorAll('.toggle-group');
 

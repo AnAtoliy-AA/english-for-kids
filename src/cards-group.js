@@ -44,11 +44,13 @@ class CardsGroup {
       domCard.addEventListener('click', (event) => {
         this.analyseCardEvent(el, event);
       });
-     
+      // buttonPlay.addEventListener('click', () => {
+      //   this.buttonPlayAudioGame();
+      // });
       domCards.appendChild(domCard);
       domCards.appendChild(buttonPlay);
     });
-    
+
     return domCards;
   }
 
@@ -56,13 +58,25 @@ class CardsGroup {
     if (event.target.id) {
       card.audioPlay(event.target.id);
     }
-    else if(event.target.classList.contains('rotate')) {
-      console.log(card);
-      console.log(event.target);
+    else if (event.target.classList.contains('rotate')) {
+      //console.log(card);
+      // console.log(event.target);
       event.target.previousSibling.classList.toggle('flip');
       event.target.previousSibling.previousSibling.classList.toggle('flip');
+      document.querySelectorAll('.card').forEach((el) => {
+        el.addEventListener('blur', () => {
+          // el.mouseleave( ()=> {
+          console.log('elem', el);
+          event.target.previousSibling.classList.toggle('flip');
+          event.target.previousSibling.previousSibling.classList.toggle('flip');
+        });
+      });
     }
   }
+
+  // buttonPlayAudioGame() {
+  //   console.log('button');
+  // }
 }
 
 export default CardsGroup;

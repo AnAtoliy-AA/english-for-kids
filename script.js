@@ -10,6 +10,10 @@ function runEnglishForKidsApp() {
     event.preventDefault();
     document.querySelector('.overlay').classList.toggle('overlay-open');
     document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
+    // document.querySelector('.overlay-content').addEventListener('blur', () => {
+    //   document.querySelector('.overlay').classList.toggle('overlay-open');
+    //   document.getElementById('hamburger-icon').classList.toggle('hamburger-open');
+    // });
   });
 
   const mainMenuCategoryLink = document.querySelector('.overlay-content').querySelectorAll('a');
@@ -19,14 +23,14 @@ function runEnglishForKidsApp() {
       const id = event.target.innerHTML;
 
       if (id === 'Main menu') {
-        console.log('xcvvvvvvvvvvvvvvv');
+        //  console.log('xcvvvvvvvvvvvvvvv');
         let startPage = container.getMainPage();
         container.applyPageToDOM(startPage);
-       // container.createDomTitleCard();
+        // container.createDomTitleCard();
       } else {
         container.openCardCategoryPage(id);
       }
-     // mainMenuCategoryLink.
+      // mainMenuCategoryLink.
       mainMenuCategoryLink.forEach((el) => {
         el.classList.remove('main-menu-link_active');
       });
