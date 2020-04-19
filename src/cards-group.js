@@ -73,9 +73,9 @@ class CardsGroup {
         this.analyseCardEvent(event);
       });
       if (!this.container.trainMode) {
-       domCard.querySelector('.card-text').classList.add('hidden');
-       domCard.querySelector('.rotate').classList.add('hidden');
-       domCard.classList.add('card-cover');
+       domCard.querySelector('.card-text').classList.togle('hidden');
+       domCard.querySelector('.rotate').classList.toggle('hidden');
+       domCard.classList.toggle('card-cover');
       }
       domCards.appendChild(domCard);
     });
