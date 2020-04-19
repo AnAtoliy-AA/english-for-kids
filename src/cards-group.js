@@ -33,12 +33,15 @@ class CardsGroup {
 
   createDOMCards() {
     const domCards = document.createElement('div');
-    const buttonPlay = document.createElement('button');
+    const buttonPlay = document.createElement('div');
+    const starContainer = document.createElement('div');
 
     domCards.classList.add('cards-group-container');
+    starContainer.classList.add('star-container');
     buttonPlay.classList.add('button-play');
     buttonPlay.classList.add('hidden');
     buttonPlay.innerHTML = 'Start game';
+    domCards.appendChild(starContainer);
     this.cardsArray.forEach((el) => {
       const domCard = el.createDOMCard();
       domCard.addEventListener('click', (event) => {
@@ -48,8 +51,8 @@ class CardsGroup {
       //   this.buttonPlayAudioGame();
       // });
       domCards.appendChild(domCard);
-      domCards.appendChild(buttonPlay);
     });
+    domCards.appendChild(buttonPlay);
 
     return domCards;
   }

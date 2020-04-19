@@ -15,6 +15,7 @@ const cardsGroupNames = {
 class CardsContainer {
   constructor() {
     this.cardsGroups = this.generateCardGroups();
+    this.cardsConfig = cardsConfig;
   }
 
   createDOMMainContainer() {
@@ -84,19 +85,28 @@ class CardsContainer {
     this.openCardCategoryPage(activeMainCardId);
   }
 
-  openCardCategoryPage(id) { 
+  openCardCategoryPage(id) {
     let cardGroup = this.selectCardGroup(id);
     let domCardGroup = cardGroup.createDOMCards();
     this.applyPageToDOM(domCardGroup);
     const buttonPlay = document.querySelector('.button-play');
-     buttonPlay.addEventListener('click', () => {
-         this.buttonPlayAudioGame(id);
-       });
+    buttonPlay.addEventListener('click', () => {
+      this.buttonPlayAudioGame(id);
+    });
   }
 
-   buttonPlayAudioGame(id) {
-    console.log('button',id);
-    console.log('buttonZZ', this.cardsConfig);
+  buttonPlayAudioGame(id) {
+    const buttonPlay = document.querySelector('.button-play');
+    // const cardsConfig = this.cardsConfig;
+    // const audioRow = cardsConfig.find(el => el === id)
+
+    buttonPlay.innerHTML = 'Repeat';
+    // buttonPlay.style.backgroundImage = './assets/img/rotate.png';
+    console.log('button', id);
+    console.log('buttonZZ', buttonPlay);
+    // console.log('audioRow', cardsConfig);
+    // console.log('audioRowZZ', audioRow);
+
   }
 
   // changeTrainToPlay() {

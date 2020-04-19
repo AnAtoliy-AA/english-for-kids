@@ -183,7 +183,12 @@ display: inline-block;
     object-fit: cover;
     margin: 30px auto;
 }
-
+.star-container {
+  height: 20px;
+  width: 100%;
+  margin-top: 20px;
+  /* background: #e2240b; */
+}
 .card {
     position: relative;
     -webkit-transform-style: preserve-3d;
@@ -242,7 +247,9 @@ display: inline-block;
 .button-play{
  width: 280px;
  height: 40px;
- margin-left: 35%;
+ /* margin-left: 35%; */
+ margin-left: auto;
+ margin-right: auto;
  margin-bottom: 20px;
  justify-content: center;
  text-align: center;
@@ -269,11 +276,18 @@ display: inline-block;
   }
   
 } 
-
+@media screen and (max-width: 1279px) {
+  .button-play {
+    margin-left: 35%;
+   }
+}
 @media screen and (max-width: 1080px) {
   .main-container {
      margin-left: 3%;
     }
+    /* .button-play {
+      margin-left: 35%;
+     } */
 
  }
 @media screen and (max-width: 768px) {
@@ -281,7 +295,7 @@ display: inline-block;
      margin-left: 6%;
     }
  }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
  .button-play {
     margin-left: 30%;
    }

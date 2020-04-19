@@ -3,14 +3,16 @@ function playTrainSwitcher() {
         .querySelectorAll('.toggle.btn')
         .forEach(btn => {
             btn.addEventListener('click', () => {
+               // const mainContainer = document.querySelector('.main-container');
                 const cardsGroups = document.querySelectorAll('.cards-group');
                 const cardsText = document.querySelectorAll('.card-text');
                 const cards = document.querySelectorAll('.card');
                 const rotateImg = document.querySelectorAll('.rotate');
                 const audioPlayButton = document.querySelector('.button-play');
+               
                // const frontCardImg = document.querySelectorAll('.front-face');
 
-
+              //  mainContainer.appendChild(starContainer);
                 if (cardsGroups) {
                     cardsGroups.forEach((el) => {
                         el.classList.toggle('cards-group_active');
@@ -37,7 +39,7 @@ function playTrainSwitcher() {
                 //     });
                 // }
                 if (audioPlayButton) {
-                    audioPlayButton.classList.toggle('hidden');
+                    audioPlayButton.classList.toggle('hidden');    
                 }
             });
         })
