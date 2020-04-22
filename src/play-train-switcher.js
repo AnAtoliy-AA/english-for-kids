@@ -8,6 +8,7 @@ function playTrainSwitcher(container) {
         const cards = document.querySelectorAll('.card');
         const rotateImg = document.querySelectorAll('.rotate');
         const audioPlayButton = document.querySelector('.button-play');
+        const audioRepeatButton = document.querySelector('.button-play-active');
         const starContainer = document.querySelector('.star-container');
         const frontFaceCard = document.querySelectorAll('.front-face');
 
@@ -47,6 +48,10 @@ function playTrainSwitcher(container) {
 
         if (audioPlayButton) {
           audioPlayButton.classList.toggle('hidden');
+        }
+
+        if (audioRepeatButton) {
+            audioRepeatButton.classList.toggle('hidden');
         }
       });
     })
