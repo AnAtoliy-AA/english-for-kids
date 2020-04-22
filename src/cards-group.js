@@ -90,8 +90,10 @@ class CardsGroup {
 
     buttonPlay.addEventListener('click', () => {
       this.lastAudio = this.randomElement;
-      this.audioPlay(this.lastAudio);
-
+    //  this.audioPlay(this.lastAudio);
+      setTimeout(() => {
+        this.audioPlay(this.lastAudio);
+      }, 500);
       buttonPlay.innerHTML = '';
       buttonPlay.classList.remove('button-play');
       buttonPlay.classList.add('button-play-active');
@@ -148,10 +150,15 @@ class CardsGroup {
             Math.floor(Math.random() * this.enabledCardsIds.length)
           ];
 
-          this.audioPlay(this.randomElement);
+          setTimeout(() => {
+            this.audioPlay(this.randomElement);
+          }, 700);
+          // this.audioPlay(this.randomElement);
           this.lastAudio = this.randomElement;
           if (this.enabledCardsIds.length === 0) {
-            this.gameOver();
+            setTimeout(() => {
+              this.gameOver();
+            }, 500);
           }
         } else {
           this.audioPlay('error');

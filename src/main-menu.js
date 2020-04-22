@@ -14,8 +14,7 @@ function mainMenu(container) {
       const id = event.target.innerHTML;
 
       if (id === mainMenu) {
-        let startPage = container.getMainPage();
-        container.applyPageToDOM(startPage);
+        container.navigateToMainMenu();
       } else {
         container.openCardCategoryPage(id);
       }
