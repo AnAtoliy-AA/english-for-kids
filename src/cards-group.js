@@ -65,7 +65,6 @@ class CardsGroup {
       buttonPlay.classList.remove('button-play');
       buttonPlay.classList.add('button-play-active');
       buttonPlay.style.backgroundImage = 'url(./assets/img/repeat.png)';
-      //  buttonPlay.removeEventListener('click', () =>{});
       this.setGameStarted(true);
     });
   }
@@ -73,10 +72,9 @@ class CardsGroup {
   createDOMCards() {
     const domCards = document.createElement('div');
     const buttonPlay = document.createElement('div');
-    buttonPlay.setAttribute('id', 'button-play-repeat');
     const starContainer = document.createElement('div');
-    // const audioRow = this.cardsConfig.map((el) => el.word);
-    // const randomElement = audioRow[Math.floor(Math.random() * audioRow.length)];
+
+    buttonPlay.setAttribute('id', 'button-play-repeat');
     this.randomElement = this.enabledCardsIds[
       Math.floor(Math.random() * this.enabledCardsIds.length)
     ];
@@ -84,7 +82,7 @@ class CardsGroup {
     domCards.classList.add('cards-group-container');
     starContainer.classList.add('star-container');
 
-   
+
 
     buttonPlay.classList.add('button-play');
     buttonPlay.classList.add('hidden');
@@ -98,7 +96,6 @@ class CardsGroup {
       buttonPlay.classList.remove('button-play');
       buttonPlay.classList.add('button-play-active');
       buttonPlay.style.backgroundImage = 'url(./assets/img/repeat.png)';
-      //  buttonPlay.removeEventListener('click', () =>{});
       this.setGameStarted(true);
     });
 
@@ -120,10 +117,7 @@ class CardsGroup {
       buttonPlay.classList.remove('hidden');
     }
     domCards.appendChild(buttonPlay);
-   
-   //  this.resetStartGameButton();
-   
-   
+
     return domCards;
   }
 
@@ -143,8 +137,6 @@ class CardsGroup {
       ) {
         this.activeCardId = event.target.id;
         if (this.activeCardId === this.lastAudio) {
-          // const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
-
           this.audioPlay('correct');
           event.target.classList.add('inactive');
           starContainer.appendChild(starWin);
@@ -204,7 +196,6 @@ class CardsGroup {
       } else {
         looseMessage.innerHTML = `You have ${this.scoreResult} mistakes!`;
       }
-      //looseMessage.innerHTML = `You have ${this.scoreResult} mistakes!`;
       looseMessage.classList.add('loose-message');
       looseMessage.style.backgroundImage = 'url(./assets/img/failure.jpg)';
       mainContainer.appendChild(looseMessage);
@@ -215,10 +206,12 @@ class CardsGroup {
       winMessage.innerHTML = 'You WIN!';
       winMessage.style.backgroundImage = 'url(./assets/img/success.jpg)';
       mainContainer.appendChild(winMessage);
-      console.log('SCORE:', this.scoreResult);
     }
 
     this.resetGameState();
+    setTimeout(() => {
+      this.container.navigateToMainMenu();
+    }, 2000);
   }
 
   audioPlay(name) {

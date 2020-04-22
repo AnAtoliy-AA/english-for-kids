@@ -95,6 +95,11 @@ class CardsContainer {
     let domCardGroup = cardGroup.createDOMCards();
     this.applyPageToDOM(domCardGroup);
   }
+
+  navigateToMainMenu() {
+    let startPage = this.getMainPage();
+    this.applyPageToDOM(startPage);
+  }
 }
 
 export default CardsContainer;
