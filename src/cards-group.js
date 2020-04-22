@@ -121,6 +121,7 @@ class CardsGroup {
         } else {
           this.audioPlay('error');
           starContainer.appendChild(starLoose);
+          this.scoreResult++;
         }
       }
     } else if (event.target.classList.contains('rotate')) {
@@ -150,12 +151,29 @@ class CardsGroup {
   gameOver() {
     const mainContainer = document.querySelector('.main-container');
     const winMessage = document.createElement('div');
+    const looseMessage = document.createElement('div');
 
+    if(this.scoreResult > 0){
+      this.audioPlay('failure');
+      this.container.clearPage();
+      if(this.scoreResult === 1) {
+        looseMessage.innerHTML = `You have ${this.scoreResult} mistake!`;
+      }else {
+        looseMessage.innerHTML = `You have ${this.scoreResult} mistakes!`;
+      }
+      //looseMessage.innerHTML = `You have ${this.scoreResult} mistakes!`;
+      looseMessage.classList.add('loose-message');
+      looseMessage.style.backgroundImage = 'url(./assets/img/failure.jpg)';
+    mainContainer.appendChild(looseMessage);
+    } else {
     this.audioPlay('success');
     this.container.clearPage();
     winMessage.classList.add('win-message');
+    winMessage.innerHTML = 'You WIN!';
     winMessage.style.backgroundImage = 'url(./assets/img/success.jpg)';
     mainContainer.appendChild(winMessage);
+    console.log('SCORE:', this.scoreResult);
+    }
   }
 
   audioPlay(name) {
