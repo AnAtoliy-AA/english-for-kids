@@ -12,6 +12,9 @@ class CardsGroup {
     this.lastAudio = '';
     this.scoreResult = [];
 
+   // this.audioRow = this.cardsConfig.map((el) => el.word);
+    //this.randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+
     this.gameStarted = false;
   }
 
@@ -44,8 +47,10 @@ class CardsGroup {
     const domCards = document.createElement('div');
     const buttonPlay = document.createElement('div');
     const starContainer = document.createElement('div');
-    const audioRow = this.cardsConfig.map((el) => el.word);
-    const randomElement = audioRow[Math.floor(Math.random() * audioRow.length)];
+    // const audioRow = this.cardsConfig.map((el) => el.word);
+    // const randomElement = audioRow[Math.floor(Math.random() * audioRow.length)];
+    this.randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+
 
     domCards.classList.add('cards-group-container');
     starContainer.classList.add('star-container');
@@ -54,14 +59,14 @@ class CardsGroup {
     buttonPlay.innerHTML = 'Start game';
 
     buttonPlay.addEventListener('click', () => {
-      this.lastAudio = randomElement;
-      this.audioPlay(randomElement);
+      this.lastAudio = this.randomElement;
+      this.audioPlay(this.lastAudio);
 
       buttonPlay.innerHTML = '';
       buttonPlay.classList.remove('button-play');
       buttonPlay.classList.add('button-play-active');
       buttonPlay.style.backgroundImage = 'url(./assets/img/repeat.png)';
-
+    //  buttonPlay.removeEventListener('click', () =>{});
       this.setGameStarted(true);
     });
 
@@ -100,15 +105,16 @@ class CardsGroup {
       } else if (this.gameStarted && !event.target.classList.contains('inactive')) {
         this.activeCardId = event.target.id;
         if (this.activeCardId === this.lastAudio) {
-          const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+         // const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
 
           this.audioPlay('correct');
           event.target.classList.add('inactive');
           starContainer.appendChild(starWin);
           this.enabledCardsIds = this.removeElementFromArray(this.enabledCardsIds, this.activeCardId);
-          this.lastAudio = randomElement;
-          this.audioPlay(this.lastAudio);
+          this.randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
 
+          this.audioPlay(this.randomElement);
+          this.lastAudio = this.randomElement;
           if (this.enabledCardsIds.length === 0) {
             this.gameOver();
           }
