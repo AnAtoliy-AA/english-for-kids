@@ -21,7 +21,14 @@ class CardsContainer {
 
   containerToggleGameMode() {
     this.trainMode = !this.trainMode;
+
+    this.resetGameState()
   }
+
+  resetGameState() {
+    this.cardsGroups.forEach(el => el.resetGameState());
+  }
+
 
   createDOMMainContainer() {
     const { body } = document;

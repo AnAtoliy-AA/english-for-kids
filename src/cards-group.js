@@ -7,14 +7,19 @@ class CardsGroup {
     this.container = container;
 
     this.selectedCardsIds = [];
-    this.enabledCardsIds = this.cardsArray.map(el => el.word);
+    this.enabledCardsIds = this.cardsArray.map((el) => el.word);
     this.activeCardId = null;
     this.lastAudio = '';
     this.scoreResult = [];
+    this.gameStarted = false;
+  }
 
-   // this.audioRow = this.cardsConfig.map((el) => el.word);
-    //this.randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
-
+  resetGameState() {
+    this.selectedCardsIds = [];
+    this.enabledCardsIds = this.cardsArray.map((el) => el.word);
+    this.activeCardId = null;
+    this.lastAudio = '';
+    this.scoreResult = [];
     this.gameStarted = false;
   }
 
@@ -43,17 +48,11 @@ class CardsGroup {
     return cards;
   }
 
-  createDOMCards() {
-    const domCards = document.createElement('div');
-    const buttonPlay = document.createElement('div');
-    const starContainer = document.createElement('div');
-    // const audioRow = this.cardsConfig.map((el) => el.word);
-    // const randomElement = audioRow[Math.floor(Math.random() * audioRow.length)];
-    this.randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+  resetStartGameButton() {
+    const buttonPlay = document.getElementById('button-play-repeat');
 
+    console.log('A: ', buttonPlay);
 
-    domCards.classList.add('cards-group-container');
-    starContainer.classList.add('star-container');
     buttonPlay.classList.add('button-play');
     buttonPlay.classList.add('hidden');
     buttonPlay.innerHTML = 'Start game';
@@ -66,7 +65,40 @@ class CardsGroup {
       buttonPlay.classList.remove('button-play');
       buttonPlay.classList.add('button-play-active');
       buttonPlay.style.backgroundImage = 'url(./assets/img/repeat.png)';
-    //  buttonPlay.removeEventListener('click', () =>{});
+      //  buttonPlay.removeEventListener('click', () =>{});
+      this.setGameStarted(true);
+    });
+  }
+
+  createDOMCards() {
+    const domCards = document.createElement('div');
+    const buttonPlay = document.createElement('div');
+    buttonPlay.setAttribute('id', 'button-play-repeat');
+    const starContainer = document.createElement('div');
+    // const audioRow = this.cardsConfig.map((el) => el.word);
+    // const randomElement = audioRow[Math.floor(Math.random() * audioRow.length)];
+    this.randomElement = this.enabledCardsIds[
+      Math.floor(Math.random() * this.enabledCardsIds.length)
+    ];
+
+    domCards.classList.add('cards-group-container');
+    starContainer.classList.add('star-container');
+
+   
+
+    buttonPlay.classList.add('button-play');
+    buttonPlay.classList.add('hidden');
+    buttonPlay.innerHTML = 'Start game';
+
+    buttonPlay.addEventListener('click', () => {
+      this.lastAudio = this.randomElement;
+      this.audioPlay(this.lastAudio);
+
+      buttonPlay.innerHTML = '';
+      buttonPlay.classList.remove('button-play');
+      buttonPlay.classList.add('button-play-active');
+      buttonPlay.style.backgroundImage = 'url(./assets/img/repeat.png)';
+      //  buttonPlay.removeEventListener('click', () =>{});
       this.setGameStarted(true);
     });
 
@@ -88,7 +120,10 @@ class CardsGroup {
       buttonPlay.classList.remove('hidden');
     }
     domCards.appendChild(buttonPlay);
-
+   
+   //  this.resetStartGameButton();
+   
+   
     return domCards;
   }
 
@@ -102,16 +137,24 @@ class CardsGroup {
     if (event.target.id) {
       if (this.container.trainMode) {
         this.audioPlay(event.target.id);
-      } else if (this.gameStarted && !event.target.classList.contains('inactive')) {
+      } else if (
+        this.gameStarted &&
+        !event.target.classList.contains('inactive')
+      ) {
         this.activeCardId = event.target.id;
         if (this.activeCardId === this.lastAudio) {
-         // const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+          // const randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
 
           this.audioPlay('correct');
           event.target.classList.add('inactive');
           starContainer.appendChild(starWin);
-          this.enabledCardsIds = this.removeElementFromArray(this.enabledCardsIds, this.activeCardId);
-          this.randomElement = this.enabledCardsIds[Math.floor(Math.random() * this.enabledCardsIds.length)];
+          this.enabledCardsIds = this.removeElementFromArray(
+            this.enabledCardsIds,
+            this.activeCardId
+          );
+          this.randomElement = this.enabledCardsIds[
+            Math.floor(Math.random() * this.enabledCardsIds.length)
+          ];
 
           this.audioPlay(this.randomElement);
           this.lastAudio = this.randomElement;
@@ -153,27 +196,29 @@ class CardsGroup {
     const winMessage = document.createElement('div');
     const looseMessage = document.createElement('div');
 
-    if(this.scoreResult > 0){
+    if (this.scoreResult > 0) {
       this.audioPlay('failure');
       this.container.clearPage();
-      if(this.scoreResult === 1) {
+      if (this.scoreResult === 1) {
         looseMessage.innerHTML = `You have ${this.scoreResult} mistake!`;
-      }else {
+      } else {
         looseMessage.innerHTML = `You have ${this.scoreResult} mistakes!`;
       }
       //looseMessage.innerHTML = `You have ${this.scoreResult} mistakes!`;
       looseMessage.classList.add('loose-message');
       looseMessage.style.backgroundImage = 'url(./assets/img/failure.jpg)';
-    mainContainer.appendChild(looseMessage);
+      mainContainer.appendChild(looseMessage);
     } else {
-    this.audioPlay('success');
-    this.container.clearPage();
-    winMessage.classList.add('win-message');
-    winMessage.innerHTML = 'You WIN!';
-    winMessage.style.backgroundImage = 'url(./assets/img/success.jpg)';
-    mainContainer.appendChild(winMessage);
-    console.log('SCORE:', this.scoreResult);
+      this.audioPlay('success');
+      this.container.clearPage();
+      winMessage.classList.add('win-message');
+      winMessage.innerHTML = 'You WIN!';
+      winMessage.style.backgroundImage = 'url(./assets/img/success.jpg)';
+      mainContainer.appendChild(winMessage);
+      console.log('SCORE:', this.scoreResult);
     }
+
+    this.resetGameState();
   }
 
   audioPlay(name) {
