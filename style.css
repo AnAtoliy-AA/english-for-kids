@@ -271,9 +271,12 @@ display: inline-block;
 .button-play-active {
   width: 60px;
  height: 60px;
-  margin-left: 40%;
+  margin-left: 50%;
  margin-right: auto;
  margin-bottom: 20px;
+ border: 2px solid rgb(167, 10, 10);
+ border-radius: 12px;
+ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .rotate {
