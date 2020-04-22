@@ -81,16 +81,11 @@ class CardsGroup {
 
     domCards.classList.add('cards-group-container');
     starContainer.classList.add('star-container');
-
-
-
     buttonPlay.classList.add('button-play');
     buttonPlay.classList.add('hidden');
     buttonPlay.innerHTML = 'Start game';
-
     buttonPlay.addEventListener('click', () => {
       this.lastAudio = this.randomElement;
-    //  this.audioPlay(this.lastAudio);
       setTimeout(() => {
         this.audioPlay(this.lastAudio);
       }, 500);
@@ -153,7 +148,6 @@ class CardsGroup {
           setTimeout(() => {
             this.audioPlay(this.randomElement);
           }, 700);
-          // this.audioPlay(this.randomElement);
           this.lastAudio = this.randomElement;
           if (this.enabledCardsIds.length === 0) {
             setTimeout(() => {
@@ -187,6 +181,7 @@ class CardsGroup {
     const index = arr.indexOf(value);
 
     arr.splice(index, 1);
+
     return arr;
   }
 

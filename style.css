@@ -168,10 +168,12 @@ display: inline-block;
     text-align: center;
     text-decoration: none;
     background: linear-gradient(180deg,#2c5358,#07d494 40%,#ccc,#fff);
+    transition: .8s;
 }
 
 .cards-group_active {
     background: linear-gradient(180deg,#d10c2d,#d40744 40%,#ccc,#fff);
+    transition: .8s;
 }
 
 .cards-group-container {
@@ -266,6 +268,7 @@ display: inline-block;
  border: 2px solid rgb(2, 54, 4);
  border-radius: 12px;
  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ cursor: pointer;
 }
 
 .button-play-active {
@@ -277,6 +280,7 @@ display: inline-block;
  border: 2px solid rgb(167, 10, 10);
  border-radius: 12px;
  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ cursor: pointer;
 }
 
 .rotate {
@@ -290,8 +294,8 @@ display: inline-block;
 
 .win-message {
   margin-top: 50px;
- width: 480px;
- height: 400px;
+ width: 250px;
+ height: 204px;
  margin-left: auto;
  margin-right: auto;
  color: #175f05;
@@ -301,8 +305,8 @@ display: inline-block;
 
 .loose-message {
     margin-top: 50px;
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -354,12 +358,6 @@ display: inline-block;
      }
      .star-container {
       max-width: 345px;
-  }
-  .win-message {
-      width:300px;
-  }
-  .loose-message {
-      width: 300px;
   }
  }
 
